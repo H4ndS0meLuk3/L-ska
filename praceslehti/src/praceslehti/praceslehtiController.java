@@ -28,6 +28,8 @@ import javafx.collections.ObservableList;
  * @author DOMA
  */
 public class praceslehtiController implements Initializable {
+
+	private int total = 0;
     
      @FXML 
     private Label trzba;
@@ -35,7 +37,7 @@ public class praceslehtiController implements Initializable {
    private TextArea text;
    
     @FXML 
-    private ChoiceBox vyber;
+    private ChoiceBox<Zbozi> vyber;
    
     @FXML
     private Label nic;
@@ -43,16 +45,16 @@ public class praceslehtiController implements Initializable {
     private Label nic2;
     @FXML
     private void handleButtonAction(ActionEvent secti) {
-        int i = 5;
-        int a = 0+i;
-    System.out.println("Přidali jste položku!");
-        trzba.setText( "Máte"+a+ "Kč");
+	Zbozi vybranezbozi = vyber.getValue();
+	System.out.println("Přidali jste položku!");
+    	total += vybraneZbozi.cena;
+        trzba.setText( "Máte "+ total + " Kč");
     }
      @FXML
     private void handleButtonAction2(ActionEvent ucet) {
-       int z= 0;
+	    total = 0;
     System.out.println("Vynulovali jste účet !");
-        trzba.setText( "Máte"+z+ "Kč");
+        trzba.setText( "Máte "+ total + " Kč");
     }
     
     @Override
